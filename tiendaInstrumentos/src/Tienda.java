@@ -24,12 +24,12 @@ public class Tienda {
         System.out.println("\nIntentando comprar con DNI inválido:");
         bateriaSinCompra.comprar("12345678A", "María García", LocalDate.now());
 
-        // Mostrar la información de cada instrumento usando toString()
+        // Mostrar la información de cada instrumento usando getInfo()
         System.out.println("\nInformación de la guitarra:");
-        System.out.println(guitarraDefault);
+        System.out.println(guitarraDefault.getInfo());
 
         System.out.println("\nInformación de la batería:");
-        System.out.println(bateriaSinCompra);
+        System.out.println(bateriaSinCompra.getInfo());
 
         // Calcular cuántos años tiene cada instrumento
         System.out.println("\nEdad de la guitarra: " + guitarraDefault.getAnyos() + " años");

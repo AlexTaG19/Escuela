@@ -74,7 +74,8 @@ public abstract class Instrumento {
      * Calcula los años que tiene el instrumento.
      */
     public int getAnyos() {
-        return Period.between(fechaFabricacion, LocalDate.now()).getYears();
+        int anos = LocalDate.now().getYear() - fechaFabricacion.getYear()  ;
+        return anos;
     }
 
     /**
@@ -88,17 +89,22 @@ public abstract class Instrumento {
      * Valida un DNI español.
      */
     public static boolean esDniValido(String dni) {
-        if (dni == null || dni.length() != 9) return false;
+        if (dni == null || dni.length() != 9) {
+            return false;
+        }
+        
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
         String numeros = dni.substring(0, 8);
-        char letra = Character.toUpperCase(dni.charAt(8));
+        char letraProporcionada = Character.toUpperCase(dni.charAt(8));
+        
         try {
-            int num = Integer.parseInt(numeros);
-            char letraCalculada = "TRWAGMYFPDXBNJZSQVHLCKE".charAt(num % 23);
-            return letra == letraCalculada;
+            int numero = Integer.parseInt(numeros);
+            char letraCalculada = letras.charAt(numero % 23);
+            return letraProporcionada == letraCalculada;
         } catch (NumberFormatException e) {
             return false;
         }
-    }
+        }
 
     /**
      * Realiza la compra del instrumento.
