@@ -3,7 +3,7 @@ package tienda.src;
 public class Guitarra {
 
     public enum Marca {
-        Gibson, Stratocaster, Ibanez, Yamaha;
+        Gibson, Stratocaster, Ibanez, Yamaha, PEARL;
 
     }
 
